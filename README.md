@@ -1,13 +1,58 @@
 # React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# 📄 3-Way Document Matching Automation (Frontend)
 
-Currently, two official plugins are available:
+This project is a frontend module for automating 3-way document matching among **Purchase Orders (PO)**, **Invoices**,
+and **Goods Receipt Notes (GRN)** using OCR. It allows users to upload documents, view extracted line-item comparisons,
+and visualize matched, partially matched, or mismatched entries in a tabular format.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## 🚀 Features
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-# 3-way-fe
+- Upload PDF/PNG/JPG files for PO, Invoice, and GRN
+- Preview uploaded files directly in the browser
+- Form validation with visual feedback
+- Table with color-coded matching results (Match ✅, Partial ⚠️, Mismatch ❌)
+- Responsive UI with Tailwind CSS
+- Toast notifications for success and error states
+
+---
+
+## 🛠️ Tech Stack
+
+- **React.js**
+- **React Hook Form** + **Yup** for form handling and validation
+- **Axios** for API requests
+- **Tailwind CSS** for styling
+- **React Toastify** for notifications
+
+---
+
+## 📦 Installation
+
+1.**Clone the repository**
+
+   ```bash
+   git clone https://github.com/div0510/3-way-fe.git
+   cd 3-way-fe
+   ```
+
+2.**Install Dependencies**
+
+```bash
+    npm install
+```
+
+3.**Start the Development Server**
+
+```bash
+   npm run dev
+```
+
+> The app should now be running on http://localhost:5173 (or the port Vite suggests).
+
+>⚠️ Make sure your backend is running at http://localhost:8000/upload-docs as expected.
+
+> 🔗 The backend for this project is available at: https://github.com/div0510/3-way-be
+

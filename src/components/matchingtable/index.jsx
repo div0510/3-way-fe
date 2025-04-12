@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 
 const getRowClass = (status) => {
 
@@ -15,25 +15,24 @@ const getRowClass = (status) => {
 };
 
 const MatchingTable = ({sampleData}) => {
-    const [totalMatch, setTotalMatch] = React.useState(0);
+    const [totalMatch, setTotalMatch] = useState(0);
 
     useEffect(() => {
         if (sampleData) {
             sampleData.items?.map((data) => {
-                if (data.status == "match") {
-                    setTotalMatch((prev) => {
-                        return prev + 1
-                    })
+                if (data.status === "match") {
+                    setTotalMatch((prev) => prev + 1)
                 }
             })
         }
-    }, [])
+    }, [sampleData])
+
     return (
         <div className="p-6">
             {sampleData &&
                 <div className="w-full mb-4 rounded-lg bg-white shadow-md border border-gray-300 py-4 text-center">
                     <p className="text-xl font-semibold text-gray-800">
-                        {totalMatch} out of {sampleData.totalCount} items matched
+                        {totalMatch} out of {sampleData.totalCount ?? sampleData.items.length} items matched
                     </p>
                 </div>
             }
