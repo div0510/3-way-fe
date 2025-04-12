@@ -55,10 +55,17 @@ export const DocumentUpload = ({setData,setLoading}) => {
                     "Content-Type": "multipart/form-data",
                 }
               });
-              toast.success("Documents uploaded successfully!");
-              setData(response.data)
-              console.log("Success:", response.data);
-              setLoading(false)
+              if(response?.data?.error){
+                  toast.error(response.data.error);
+                  setLoading(false)
+              }
+              else{
+                  toast.success("Documents uploaded successfully!");
+                  setData(response.data)
+                  console.log("Success:", response.data);
+                  setLoading(false)
+              }
+
       } catch (err) {
         setLoading(false)
         toast.error("unable to generate the response!!");

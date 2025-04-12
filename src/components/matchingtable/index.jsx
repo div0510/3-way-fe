@@ -1,7 +1,4 @@
 import React, {useEffect} from "react";
-import matched from '../../assets/match.png';
-import mismatched from '../../assets/mismatch.png';
-import {useState} from "react";
 
 const getRowClass = (status) => {
 
@@ -69,23 +66,23 @@ const MatchingTable = ({sampleData}) => {
                             <td className="border px-4 py-2 font-medium text-blue-800">{item.itemCode}</td>
 
                             {/* PO */}
-                            <td className="border px-4 py-2">{item.po.quantity}</td>
-                            <td className="border px-4 py-2">${item.po.unitPrice.toFixed(2)}</td>
-                            <td className="border px-4 py-2">${item.po.totalAmount.toFixed(2)}</td>
+                            <td className="border px-4 py-2">{item.po?.quantity || "N/A"}</td>
+                            <td className="border px-4 py-2">${(item.po?.unitPrice || 0).toFixed(2)}</td>
+                            <td className="border px-4 py-2">${(item.po?.totalAmount || 0).toFixed(2)}</td>
 
                             {/* Invoice */}
-                            <td className="border px-4 py-2">{item.invoice.quantity}</td>
-                            <td className="border px-4 py-2">${item.invoice.unitPrice.toFixed(2)}</td>
-                            <td className="border px-4 py-2">${item.invoice.totalAmount.toFixed(2)}</td>
+                            <td className="border px-4 py-2">{item.invoice?.quantity || "N/A"}</td>
+                            <td className="border px-4 py-2">${(item.invoice?.unitPrice || 0).toFixed(2)}</td>
+                            <td className="border px-4 py-2">${(item.invoice?.totalAmount || 0).toFixed(2)}</td>
 
                             {/* GRN */}
-                            <td className="border px-4 py-2">{item.grn.quantity}</td>
-                            <td className="border px-4 py-2">${item.grn.unitPrice.toFixed(2)}</td>
-                            <td className="border px-4 py-2">${item.grn.totalAmount.toFixed(2)}</td>
+                            <td className="border px-4 py-2">{item.grn?.quantity || "N/A"}</td>
+                            <td className="border px-4 py-2">${(item.grn?.unitPrice || 0).toFixed(2)}</td>
+                            <td className="border px-4 py-2">${(item.grn?.totalAmount || 0).toFixed(2)}</td>
 
                             {/* Status */}
                             <td className="border px-4 py-2">
-                                {item.status === "match" || item.status === "partial" ? <p>✅</p> : <p>❌</p>}
+                                {item.status === "match" || item.status === "missing" ? <p>✅</p> : <p>❌</p>}
                             </td>
                         </tr>
                     ))}
