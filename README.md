@@ -29,6 +29,40 @@ and visualize matched, partially matched, or mismatched entries in a tabular for
 
 ---
 
+## 🎨 Frontend (React) – Brief Architecture
+
+```makefile
+📦 frontend/
+├── App.js                        # Main layout and page structure
+├── components/
+│   ├── documentUpload/           # Upload PO, Invoice, GRN files (with validation and preview)
+│   └── matchingTable/            # Display matching results in a dynamic table
+```
+
+### ⚙️ Responsibilities:
+
+- Uploads documents via form (validates file type and presence)
+
+- Displays PDF/image previews
+
+- Sends files to backend API
+
+- Shows matching results in a responsive table
+
+- Highlights matched, partially matched, and mismatched rows using colors
+
+### 🎯 Features:
+
+- 🟩 Green: Fully matched items
+
+- 🟨 Yellow: Partial mismatch
+
+- 🟥 Red: Mismatch or missing values
+
+- Responsive layout using Tailwind CSS
+
+- Validation using react-hook-form + yup
+
 ## 📦 Installation
 
 1.**Clone the repository**
@@ -52,7 +86,7 @@ and visualize matched, partially matched, or mismatched entries in a tabular for
 
 > The app should now be running on http://localhost:5173 (or the port Vite suggests).
 
->⚠️ Make sure your backend is running at http://localhost:8000/upload-docs as expected.
+> ⚠️ Make sure your backend is running at http://localhost:8000/upload-docs as expected.
 
 > 🔗 The backend for this project is available at: https://github.com/div0510/3-way-be
 
